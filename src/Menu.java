@@ -1,6 +1,7 @@
 import javax.swing.*;
 
 public class Menu {
+
     JButton addStudent = new JButton("Dodaj");
     JButton showStudent = new JButton("Wyświetl");
     JButton editStudent = new JButton("Edytuj");

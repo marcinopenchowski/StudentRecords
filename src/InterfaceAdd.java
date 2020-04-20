@@ -1,6 +1,7 @@
 import javax.swing.*;
+import java.text.NumberFormat;
 
-public class InterfaceAdd {
+public class InterfaceAdd extends JPanel{
     JLabel labelName = new JLabel("Imie: ");
     JLabel labelSurname = new JLabel("Nazwisko: ");
     JLabel labelStudyMajor = new JLabel("Kierunek Studiów: ");
@@ -12,13 +13,32 @@ public class InterfaceAdd {
     JTextField textFieldName = new JTextField(25);
     JTextField textFieldSurname = new JTextField(25);
     JComboBox studyMajorList = new JComboBox(StudyMajors.values());
-    JTextField textFieldYearOfStudy = new JTextField(5);
+    JFormattedTextField textFieldYearOfStudy = new JFormattedTextField();
     JTextField textFieldAverageGrades = new JTextField(5);
 
     JButton buttonApply = new JButton("Zatwierdź");
 
+    public JTextField getTextFieldName() {
+        return textFieldName;
+    }
 
-        public void creatingInterfaceAdd(JPanel panel){
+    public JTextField getTextFieldSurname() {
+        return textFieldSurname;
+    }
+
+    public JComboBox getStudyMajorList() {
+        return studyMajorList;
+    }
+
+    public JFormattedTextField getTextFieldYearOfStudy() {
+        return textFieldYearOfStudy;
+    }
+
+    public JTextField getTextFieldAverageGrades() {
+        return textFieldAverageGrades;
+    }
+
+    public void creatingInterfaceAdd(JPanel panel){
             labelName.setBounds(150, 10, 150, 25);
             labelSurname.setBounds(150, 45, 150, 25);
             labelStudyMajor.setBounds(150, 80, 150, 25);

@@ -11,6 +11,46 @@ private double averageGrades;
         this.yearOfStudy = yearOfStudy;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public StudyMajors getStudyMajors() {
+        return studyMajors;
+    }
+
+    public void setStudyMajors(StudyMajors studyMajors) {
+        this.studyMajors = studyMajors;
+    }
+
+    public int getYearOfStudy() {
+        return yearOfStudy;
+    }
+
+    public void setYearOfStudy(int yearOfStudy) {
+        this.yearOfStudy = yearOfStudy;
+    }
+
+    public double getAverageGrades() {
+        return averageGrades;
+    }
+
+    public void setAverageGrades(double averageGrades) {
+        this.averageGrades = averageGrades;
+    }
+
     @Override
     public String toString() {
         return name + " " + surname + " " + studyMajors + " " + yearOfStudy + " "+ averageGrades;

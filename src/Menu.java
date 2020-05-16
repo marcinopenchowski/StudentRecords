@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Menu {
 
@@ -7,19 +8,46 @@ public class Menu {
     JButton editStudent = new JButton("Edytuj");
     JButton deleteStudent = new JButton("Usuń");
     JButton searchStudent = new JButton("Wyszukaj");
+    JPanel centerPanel;
+
+    public Menu(JPanel centerPanel, AdditionPanel additionPanel, ShowPanel showPanel){
+        this.centerPanel = centerPanel;
+
+        addStudent.addActionListener(actionEvent -> {
+            show(additionPanel);
+        });
+        showStudent.addActionListener(actionEvent -> {
+            show(showPanel);
+
+        });
+        editStudent.addActionListener(actionEvent -> {
 
 
-        public void creatingMenu(JPanel panel){
-            addStudent.setBounds(5, 10, 100, 25);
-            showStudent.setBounds(5, 45, 100, 25);
-            editStudent.setBounds(5, 80, 100, 25);
-            deleteStudent.setBounds(5, 115, 100, 25);
-            searchStudent.setBounds(5, 150, 100, 25);
+        });
 
+        deleteStudent.addActionListener(actionEvent -> {
+
+
+        });
+
+        searchStudent.addActionListener(actionEvent -> {
+
+
+        });
+    }
+
+        public void display(JPanel panel){
             panel.add(addStudent);
             panel.add(showStudent);
             panel.add(editStudent);
             panel.add(deleteStudent);
             panel.add(searchStudent);
+    }
+
+    public void show(MyPanels additionPanel){
+        centerPanel.removeAll();
+        centerPanel.repaint();
+        additionPanel.display(centerPanel);
+        centerPanel.revalidate();
     }
 }

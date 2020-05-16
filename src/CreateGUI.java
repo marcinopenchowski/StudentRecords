@@ -1,68 +1,19 @@
-import org.w3c.dom.ls.LSOutput;
-
 import javax.swing.*;
-import java.io.*;
-import java.util.Scanner;
 
 public class CreateGUI {
     public static void createAndShowGUI(){
-        JPanel panel = new JPanel(null);
-        JFrame mainFrame = new JFrame();
-
-
-        Menu menu = new Menu();
-        menu.creatingMenu(panel);
-
+        MyPanels myPanels = new MyPanels();
         StudentsList studentsList = new StudentsList();
 
-        menu.addStudent.addActionListener(actionEvent -> {
-
-            InterfaceAdd interfaceAdd = new InterfaceAdd();
-            interfaceAdd.creatingInterfaceAdd(panel);
-            interfaceAdd.buttonApply.addActionListener(actionEvent1 -> {
-
-
-                Student student  = new Student(interfaceAdd.getTextFieldName().getText(),
-                        interfaceAdd.getTextFieldSurname().getText(),
-                        (StudyMajors)interfaceAdd.studyMajorList.getSelectedItem(),
-                        Integer.parseInt(interfaceAdd.getTextFieldYearOfStudy().getText()));
-
-                studentsList.add(student);
-
-                System.out.println(studentsList);
+        AdditionPanel additionPanel = new AdditionPanel(studentsList);
+        ShowPanel showPanel = new ShowPanel();
+        Menu menu = new Menu(myPanels.centerGridLayout, additionPanel, showPanel);
+        menu.display(myPanels.leftGridLayout);
 
 
-            });
 
-            panel.repaint();
-        });
-
-        menu.showStudent.addActionListener(actionEvent -> {
-            InterfaceShow interfaceShow = new InterfaceShow();
-            interfaceShow.creatingInterfaceShow(panel);
-
-
-            panel.repaint();
-
-        });
-
-        menu.editStudent.addActionListener(actionEvent -> {
-
-
-        });
-
-        menu.deleteStudent.addActionListener(actionEvent -> {
-
-
-        });
-
-        menu.searchStudent.addActionListener(actionEvent -> {
-
-
-        });
-
-
-        mainFrame.setContentPane(panel);
+        JFrame mainFrame = new JFrame();
+        mainFrame.setContentPane(myPanels.panel);
         mainFrame.setTitle("STUDENCI PJATK");
         mainFrame.setSize(1000, 500);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -1,18 +1,14 @@
 import javax.swing.*;
-import java.awt.*;
 
-public class Menu {
+public class Menu extends MyPanel{
 
     JButton addStudent = new JButton("Dodaj");
     JButton showStudent = new JButton("Wyświetl");
-    JButton editStudent = new JButton("Edytuj");
-    JButton deleteStudent = new JButton("Usuń");
     JButton searchStudent = new JButton("Wyszukaj");
-    JPanel centerPanel;
+    JPanel centerBorderLayout;
 
-    public Menu(JPanel centerPanel, AdditionPanel additionPanel, ShowPanel showPanel){
-        this.centerPanel = centerPanel;
-
+    public Menu(JPanel centerBorderLayout, AdditionPanel additionPanel, ShowPanel showPanel, SearchPanel searchPanel){
+        this.centerBorderLayout = centerBorderLayout;
         addStudent.addActionListener(actionEvent -> {
             show(additionPanel);
         });
@@ -20,18 +16,8 @@ public class Menu {
             show(showPanel);
 
         });
-        editStudent.addActionListener(actionEvent -> {
-
-
-        });
-
-        deleteStudent.addActionListener(actionEvent -> {
-
-
-        });
-
         searchStudent.addActionListener(actionEvent -> {
-
+            show(searchPanel);
 
         });
     }
@@ -39,15 +25,13 @@ public class Menu {
         public void display(JPanel panel){
             panel.add(addStudent);
             panel.add(showStudent);
-            panel.add(editStudent);
-            panel.add(deleteStudent);
             panel.add(searchStudent);
     }
 
-    public void show(MyPanels additionPanel){
-        centerPanel.removeAll();
-        centerPanel.repaint();
-        additionPanel.display(centerPanel);
-        centerPanel.revalidate();
+    public void show(MyPanel menuPanel){
+        centerBorderLayout.removeAll();
+        centerBorderLayout.repaint();
+        menuPanel.display(centerBorderLayout);
+        centerBorderLayout.revalidate();
     }
 }

@@ -2,18 +2,20 @@ import javax.swing.*;
 
 public class CreateGUI {
     public static void createAndShowGUI(){
-        MyPanels myPanels = new MyPanels();
+        MyPanel myPanel = new MyPanel();
         StudentsList studentsList = new StudentsList();
 
         AdditionPanel additionPanel = new AdditionPanel(studentsList);
         ShowPanel showPanel = new ShowPanel();
-        Menu menu = new Menu(myPanels.centerGridLayout, additionPanel, showPanel);
-        menu.display(myPanels.leftGridLayout);
+        SearchPanel searchPanel = new SearchPanel();
+
+        Menu menu = new Menu(myPanel.getCenterBorderLayout(), additionPanel, showPanel, searchPanel);
+        menu.display(myPanel.northGridLayout);
 
 
 
         JFrame mainFrame = new JFrame();
-        mainFrame.setContentPane(myPanels.panel);
+        mainFrame.setContentPane(myPanel.panel);
         mainFrame.setTitle("STUDENCI PJATK");
         mainFrame.setSize(1000, 500);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

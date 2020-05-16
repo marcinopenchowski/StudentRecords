@@ -1,10 +1,8 @@
 import javax.swing.*;
-import java.awt.*;
-import java.text.NumberFormat;
 
-public class AdditionPanel extends MyPanels{
+public class AdditionPanel extends MyPanel {
 
-    JPanel gridLayout = new JPanel();
+
     JLabel labelName = new JLabel("Imie: ");
     JLabel labelSurname = new JLabel("Nazwisko: ");
     JLabel labelStudyMajor = new JLabel("Kierunek Studiów: ");
@@ -22,19 +20,19 @@ public class AdditionPanel extends MyPanels{
     JButton buttonApply = new JButton("Zatwierdź");
 
     public AdditionPanel(StudentsList studentsList){
-        gridLayout.setLayout(new GridLayout(0, 2));
-        gridLayout.add(labelName);
-        gridLayout.add(textFieldName);
-        gridLayout.add(labelSurname);
-        gridLayout.add(textFieldSurname);
-        gridLayout.add(labelStudyMajor);
-        gridLayout.add(studyMajorList);
-        gridLayout.add(labelYearOfStudy);
-        gridLayout.add(textFieldYearOfStudy);
-        gridLayout.add(labelAverageGrades);
-        gridLayout.add(labelEmpty);
-        gridLayout.add(textFieldAverageGrades);
-        gridLayout.add(buttonApply);
+
+        centerGridLayout.add(labelName);
+        centerGridLayout.add(textFieldName);
+        centerGridLayout.add(labelSurname);
+        centerGridLayout.add(textFieldSurname);
+        centerGridLayout.add(labelStudyMajor);
+        centerGridLayout.add(studyMajorList);
+        centerGridLayout.add(labelYearOfStudy);
+        centerGridLayout.add(textFieldYearOfStudy);
+        centerGridLayout.add(labelAverageGrades);
+        centerGridLayout.add(labelEmpty);
+        centerGridLayout.add(textFieldAverageGrades);
+        centerGridLayout.add(buttonApply);
 
         textFieldName.setEditable(true);
         textFieldSurname.setEditable(true);
@@ -68,7 +66,7 @@ public class AdditionPanel extends MyPanels{
 
     public void display(JPanel panel){
 
-        panel.add(gridLayout);
+        panel.add(centerGridLayout);
 
         }
 

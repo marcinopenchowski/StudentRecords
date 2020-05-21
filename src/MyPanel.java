@@ -21,12 +21,12 @@ public class MyPanel extends JPanel{
         panel.add(centerBorderLayout, BorderLayout.CENTER);
 
 
-        northGridLayout.setLayout(new GridLayout(1, 0, 0, 20));
+        northGridLayout.setLayout(new GridLayout(1, 0));
         panel.add(northGridLayout, BorderLayout.NORTH);
 
-        centerGridLayout.setLayout(new GridLayout(0, 2));
+        centerGridLayout.setLayout(new GridLayout(0, 2,0, 20));
 
-        westGridLayout.setLayout(new GridLayout(0, 1, 20, 100));
+        westGridLayout.setLayout(new GridLayout(0, 1));
 
     }
 

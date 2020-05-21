@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class AdditionPanel extends MyPanel {
 
@@ -7,7 +8,6 @@ public class AdditionPanel extends MyPanel {
     JLabel labelSurname = new JLabel("Nazwisko: ");
     JLabel labelStudyMajor = new JLabel("Kierunek Studiów: ");
     JLabel labelYearOfStudy = new JLabel("Rok Studiów: ");
-    JLabel labelAverageGrades = new JLabel("Średnia Ocen: ");
     JLabel labelEmpty = new JLabel();
 
 
@@ -15,11 +15,10 @@ public class AdditionPanel extends MyPanel {
     JTextField textFieldSurname = new JTextField(25);
     JComboBox studyMajorList = new JComboBox(StudyMajors.values());
     JFormattedTextField textFieldYearOfStudy = new JFormattedTextField();
-    JTextField textFieldAverageGrades = new JTextField(5);
 
     JButton buttonApply = new JButton("Zatwierdź");
 
-    public AdditionPanel(StudentsList studentsList){
+    public AdditionPanel(StudentsModel studentsModel){
 
         centerGridLayout.add(labelName);
         centerGridLayout.add(textFieldName);
@@ -29,16 +28,12 @@ public class AdditionPanel extends MyPanel {
         centerGridLayout.add(studyMajorList);
         centerGridLayout.add(labelYearOfStudy);
         centerGridLayout.add(textFieldYearOfStudy);
-        centerGridLayout.add(labelAverageGrades);
         centerGridLayout.add(labelEmpty);
-        centerGridLayout.add(textFieldAverageGrades);
         centerGridLayout.add(buttonApply);
-
         textFieldName.setEditable(true);
         textFieldSurname.setEditable(true);
         textFieldName.setEditable(true);
-        textFieldAverageGrades.setEditable(false);
-        addListenerForStudentAdd(studentsList);
+        addListenerForStudentAdd(studentsModel);
 
     }
 
@@ -60,30 +55,25 @@ public class AdditionPanel extends MyPanel {
         return textFieldYearOfStudy;
     }
 
-    public JTextField getTextFieldAverageGrades() {
-        return textFieldAverageGrades;
-    }
 
     public void display(JPanel panel){
 
-        panel.add(centerGridLayout);
+        panel.add(centerGridLayout, BorderLayout.CENTER);
 
         }
 
-        public Student getStudent(){
-            return new Student(getTextFieldName().getText(),
+        public Object[] getStudent(){
+            return new Object[] {getTextFieldName().getText(),
                     getTextFieldSurname().getText(),
-                    (StudyMajors)studyMajorList.getSelectedItem(),
-                    Integer.parseInt(getTextFieldYearOfStudy().getText()));
+                    studyMajorList.getSelectedItem(),
+                    Integer.parseInt(getTextFieldYearOfStudy().getText())};
         }
 
-        public void addListenerForStudentAdd(StudentsList studentsList){
+        public void addListenerForStudentAdd(StudentsModel studentsModel){
         buttonApply.addActionListener(actionEvent -> {
 
-            Student student = getStudent();
-            studentsList.addStudent(student);
-            System.out.println(studentsList);
-
+            Object[] student = getStudent();
+            studentsModel.addRow(student);
         });
         }
 }

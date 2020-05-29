@@ -1,25 +1,18 @@
 import javax.swing.*;
-import javax.swing.table.TableColumn;
 import java.io.IOException;
 
-public class CreateGUI {
+
+public class CreateGUI{
     public static void createAndShowGUI() throws IOException {
         MyPanel myPanel = new MyPanel();
-        StudentsModel studentsModel = new StudentsModel();
+        StudentsTableModel studentsTableModel = new StudentsTableModel();
+        studentsTableModel.setModels(studentsTableModel);
+        AdditionPanel additionPanel = new AdditionPanel(studentsTableModel);
+        ShowPanel showPanel = new ShowPanel(studentsTableModel);
 
-        JTable studentsTable = new JTable(studentsModel);
-        studentsTable.setEnabled(false);
-        studentsTable.setAutoCreateRowSorter(true);
-        JScrollPane scrollPane = new JScrollPane(studentsTable);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-
-        AdditionPanel additionPanel = new AdditionPanel(studentsModel);
-        ShowPanel showPanel = new ShowPanel(scrollPane, studentsModel, studentsTable, additionPanel);
-        SearchPanel searchPanel = new SearchPanel();
-
-        Menu menu = new Menu(myPanel.getCenterBorderLayout(), additionPanel, showPanel, searchPanel, studentsTable);
+        Menu menu = new Menu(myPanel.getCenterBorderLayout(), additionPanel, showPanel, studentsTableModel);
         menu.display(myPanel.northGridLayout);
+
 
 
 

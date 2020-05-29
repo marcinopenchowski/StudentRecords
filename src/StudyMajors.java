@@ -1,9 +1,9 @@
 public enum StudyMajors {
-    INTERIOR_DESIGN("Architektura Wnętrz"),
+    INTERIOR_DESIGN("Architektura_Wnętrz"),
     GRAPHICS("Grafika"),
     INFORMATICS ("Informatyka"),
     CULTURAL ("Kulturoznawstwo"),
-    INFORMATION_MANAGEMENT ("Zarządznie Informacją");
+    INFORMATION_MANAGEMENT ("Zarządznie_Informacją");
 
     String s;
 
